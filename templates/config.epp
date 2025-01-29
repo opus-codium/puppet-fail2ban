@@ -1,0 +1,12 @@
+# This file is managed by Puppet. DO NOT EDIT.
+
+<% $content.each |$section, $content| { -%>
+[<%= $section %>]
+  <%- $content.each |$key, $value| { -%>
+    <%- if $value =~ Sensitive { -%>
+<%= $key %> = <%= Sensitive($value.unwrap.regsubst('\n', "\n${($key.length + 3).step(1).map |$_n| { ' ' }.join}", 'M')) %>
+    <%- } elsif ! $value.empty { -%>
+<%= $key %> = <%= $value.regsubst('\n', "\n${($key.length + 3).step(1).map |$_n| { ' ' }.join}", 'M') %>
+    <%- } -%>
+  <%- } -%>
+<% } -%>
