@@ -13,13 +13,13 @@ describe 'fail2ban::action::cloudflare' do
 
       let(:params) do
         {
-          'user'   => 'user@example.com',
-          'token'  => sensitive('secret'),
+          'user'  => 'user@example.com',
+          'token' => sensitive('secret'),
         }
       end
 
       it do
-        is_expected.to contain_file('/etc/fail2ban/action.d/cloudflare.local').with({
+        is_expected.to contain_file('/etc/fail2ban/action.d/cloudflare.local').with(
           content: sensitive(<<~CONTENT),
             # This file is managed by Puppet. DO NOT EDIT.
 
@@ -27,8 +27,8 @@ describe 'fail2ban::action::cloudflare' do
             cfuser = user@example.com
             cftoken = secret
           CONTENT
-          mode: '0640',
-        })
+          mode: '0640'
+        )
       end
     end
   end

@@ -33,7 +33,7 @@ describe 'fail2ban::action' do
           owner: 'root',
           group: 'root',
           mode: '0644',
-          content: <<~CONTENT,
+          content: <<~CONTENT
             # This file is managed by Puppet. DO NOT EDIT.
 
             [Init]
