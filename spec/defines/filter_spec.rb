@@ -27,7 +27,7 @@ describe 'fail2ban::filter' do
           owner: 'root',
           group: 'root',
           mode: '0644',
-          content: <<~CONTENT,
+          content: <<~CONTENT
             # This file is managed by Puppet. DO NOT EDIT.
 
             [Definition]
